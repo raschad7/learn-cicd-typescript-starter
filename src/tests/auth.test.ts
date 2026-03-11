@@ -6,14 +6,14 @@ describe("getAPIKey", () => {
     const headers = {
       authorization: "ApiKey my-super-secret-key",
     };
-    
+
     const key = getAPIKey(headers);
     expect(key).toBe("my-super-secret-key");
   });
 
   test("returns null if authorization header is missing", () => {
     const headers = {}; // Empty headers
-    
+
     const key = getAPIKey(headers);
     expect(key).toBe(null);
   });
@@ -22,7 +22,7 @@ describe("getAPIKey", () => {
     const headers = {
       authorization: "Bearer my-super-secret-key", // Wrong prefix
     };
-    
+
     const key = getAPIKey(headers);
     expect(key).toBe(null);
   });
